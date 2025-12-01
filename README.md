@@ -103,19 +103,19 @@ alembic downgrade -1
 
 ```
 # создать операторов
-curl -X POST "http://127.0.0.1:8001/operators/" -H "Content-Type: application/json" -d '{"name": "Иван", "max_active_leads": 5}'
+curl -X POST "http://127.0.0.1:8000/operators/" -H "Content-Type: application/json" -d '{"name": "Иван", "max_active_leads": 5}'
 
-curl -X POST "http://127.0.0.1:8001/operators/" -H "Content-Type: application/json" -d '{"name": "Мария", "max_active_leads": 10}'
+curl -X POST "http://127.0.0.1:8000/operators/" -H "Content-Type: application/json" -d '{"name": "Мария", "max_active_leads": 10}'
 
 # создать источник
-curl -X POST "http://127.0.0.1:8001/sources/" -H "Content-Type: application/json" -d '{"name": "telegram_bot"}'
+curl -X POST "http://127.0.0.1:8000/sources/" -H "Content-Type: application/json" -d '{"name": "telegram_bot"}'
 
 # настроить веса (Иван:30%, Мария:70%)
-curl -X POST "http://127.0.0.1:8001/source-weights/" -H "Content-Type: application/json" -d '{"source_id":1,"operator_id":1,"weight":3}'
-curl -X POST "http://127.0.0.1:8001/source-weights/" -H "Content-Type: application/json" -d '{"source_id":1,"operator_id":2,"weight":7}'
+curl -X POST "http://127.0.0.1:8000/source-weights/" -H "Content-Type: application/json" -d '{"source_id":1,"operator_id":1,"weight":3}'
+curl -X POST "http://127.0.0.1:8000/source-weights/" -H "Content-Type: application/json" -d '{"source_id":1,"operator_id":2,"weight":7}'
 
 # создать обращение (автоматическое распределение)
-curl -X POST "http://127.0.0.1:8001/contacts/" -H "Content-Type: application/json" -d '{"external_id":"+79123456789","source_name":"telegram_bot","message":"Нужна консультация"}'
+curl -X POST "http://127.0.0.1:8000/contacts/" -H "Content-Type: application/json" -d '{"external_id":"+79123456789","source_name":"telegram_bot","message":"Нужна консультация"}'
 ```
 
 ---
