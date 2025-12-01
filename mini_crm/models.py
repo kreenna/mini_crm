@@ -35,7 +35,7 @@ class Source(Base):
     __tablename__ = "sources"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True, unique=True)  # bot1, bot2
+    name = Column(String, index=True, unique=True)
 
     weights = relationship("SourceOperatorWeight", back_populates="source")
     contacts = relationship("Contact", back_populates="source")

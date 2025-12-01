@@ -6,7 +6,7 @@ from .services import distribute_contact
 
 def create_operator(db: Session, operator: schemas.OperatorCreate):
     """Функция создания оператора в базе."""
-    db_operator = models.Operator(**operator.dict())
+    db_operator = models.Operator(**operator.model_dump())
     db.add(db_operator)
     db.commit()
     db.refresh(db_operator)
@@ -27,7 +27,7 @@ def update_operator(db: Session, operator_id: int, operator_update: schemas.Oper
     """Функция обновления данных оператора в базе данных."""
     operator = get_operator(db, operator_id)
     if operator:
-        update_data = operator_update.dict(exclude_unset=True)
+        update_data = operator_update.model_dump(exclude_unset=True)
         for field, value in update_data.items():
             setattr(operator, field, value)
         db.commit()
@@ -37,7 +37,7 @@ def update_operator(db: Session, operator_id: int, operator_update: schemas.Oper
 
 def create_source(db: Session, source: schemas.SourceCreate):
     """Функция для создания источника в базе данных."""
-    db_source = models.Source(**source.dict())
+    db_source = models.Source(**source.model_dump())
     db.add(db_source)
     db.commit()
     db.refresh(db_source)
