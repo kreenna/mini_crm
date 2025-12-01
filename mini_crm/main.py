@@ -1,14 +1,12 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from mini_crm.database import Base, engine, get_db
+from mini_crm.database import get_db
 from mini_crm.schemas import Operator, OperatorCreate, OperatorUpdate, Source, SourceCreate, SourceOperatorWeightCreate, \
     Contact, ContactCreate, Lead
-from mini_crm.views import create_operator, get_operators, update_operator, create_source, get_sources, create_source_weight, \
+from mini_crm.views import create_operator, get_operators, update_operator, create_source, get_sources, \
+    create_source_weight, \
     create_contact, get_contacts, get_leads
-
-# создаем таблицы
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Mini-CRM Lead Distribution")
 
