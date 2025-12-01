@@ -6,6 +6,7 @@ from .database import Base
 
 
 class Operator(Base):
+    """Модель оператора."""
     __tablename__ = "operators"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -19,6 +20,7 @@ class Operator(Base):
 
 
 class Lead(Base):
+    """Модель лида."""
     __tablename__ = "leads"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -29,6 +31,7 @@ class Lead(Base):
 
 
 class Source(Base):
+    """Модель источника."""
     __tablename__ = "sources"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -39,6 +42,7 @@ class Source(Base):
 
 
 class SourceOperatorWeight(Base):
+    """Модель веса источника на оператора."""
     __tablename__ = "source_operator_weights"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -51,6 +55,7 @@ class SourceOperatorWeight(Base):
 
 
 class Contact(Base):
+    """Модель контакта."""
     __tablename__ = "contacts"
 
     id = Column(Integer, primary_key=True, index=True)
